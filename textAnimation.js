@@ -3,6 +3,7 @@
 let spaceBetweenNextLetterInMilliseconds = 50
 const text = Array.from(document.querySelectorAll(".text-animation-one"))
 convertTextOfElementToSpans(text[0])
+let duplicateOfText = text[0].textContent.slice()
 const spansOfText = Array.from(document.querySelector(".text-animation-one").children)
 console.log(spansOfText)
 function convertTextOfElementToSpans(element){
@@ -15,8 +16,7 @@ function convertTextOfElementToSpans(element){
     }
     return element.innerHTML;
 }
-
-const clear = setInterval(triggerAnimation, spaceBetweenNextLetterInMilliseconds)
+    const clear = setInterval(triggerAnimation, spaceBetweenNextLetterInMilliseconds)
 let counter = 0;
 let givenSpan;
 function triggerAnimation(){
@@ -25,8 +25,14 @@ function triggerAnimation(){
     counter++;
     if(counter >= spansOfText.length){
         clearInterval(clear)
+        setTimeout(then, 1000)
     }
 }
+function then() {
+    text[0].textContent = duplicateOfText
+    text[0].classList.add("animation-gradient")
+}
+
 
 
 
