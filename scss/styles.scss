@@ -1,0 +1,17 @@
+@use 'default';
+
+
+.text-animation-one {
+    // This is to take care of spaces
+    white-space: pre;
+    span {
+        opacity: 0;
+        transform: translateY(75px);
+        &.active{
+            // Cool cubic bezier?
+            transition: all 500ms cubic-bezier(.39,.4,.12,1.68);
+            transform: translateY(0px);
+            opacity: 1;
+        }
+    }
+}
